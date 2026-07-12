@@ -1,4 +1,3 @@
 # RepoNuevo
-Me quiero morir tengo muchos nervios... bastaaaaaaaaaaaaaa me va a dar el bobaso
-Me duele la panza de los nervios
-diosssssssssssssssss
+QUE NOS ESPERA EL MIERCOLES...
+DIOS NOS SALVE Y GUARDE
