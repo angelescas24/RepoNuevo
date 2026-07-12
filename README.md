@@ -2,7 +2,9 @@
 QUE NOS ESPERA EL MIERCOLES...
 DIOS NOS SALVE Y GUARDE
 
+laikus
 kIMI 
 KURI
 Merly
-Laika
+
+
