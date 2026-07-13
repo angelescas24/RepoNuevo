@@ -1,1 +1,125 @@
-Latam
+Latam# LATAM
+
+## Arquitectura General
+
+### Módulos Frontend
+- Perfil del usuario logueado
+- Datos de la empresa
+- Home
+- Resumen de saldos bancarios
+- Movimientos
+- Consolidados de saldos
+- Carga de archivos
+- Roles
+- Cuentas
+- Administración
+- Consultas
+- Preguntas Frecuentes
+
+### Integraciones
+- Figma Fase 1
+- Figma Fase 2
+- BFF (Backend For Frontend)
+- Backends específicos por dominio
+
+Referencia: [1](https://interbankingsa-my.sharepoint.com/personal/mcastano_interbanking_com_ar/Documents/Archivos%20de%20Microsoft%C2%A0Copilot%20Chat/Latam%20%283%29.drawio.pdf)
+
+---
+
+# Perfil de Usuario
+
+## Swagger
+https://users-back-devusers-back.apps.rosa.v0z1n1h4r8q3k9r.pufv.p3.openshiftapps.com/swagger/#/
+
+## Endpoints
+
+| Método | Endpoint | Acción |
+|----------|----------|----------|
+| GET | `/v1/users/profile` | Consulta perfil de usuario |
+| PATCH | `/v1/users/{userId}` | Actualiza datos del colaborador (excepto rol, organización y estado) |
+| GET | `/v1/users/filters` | Recupera filtros disponibles para la organización |
+| GET | `/v1/users` | Recupera todos los usuarios registrados |
+| POST | `/v1/users/{userId}/activation` | Activa un usuario |
+| POST | `/v1/users/{userId}/deactivation` | Desactiva un usuario |
+| POST | `/v1/users/{userId}/deletion` | Elimina un usuario |
+| POST | `/v1/users` | Crea un usuario |
+
+Referencia: [1](https://interbankingsa-my.sharepoint.com/personal/mcastano_interbanking_com_ar/Documents/Archivos%20de%20Microsoft%C2%A0Copilot%20Chat/Latam%20%283%29.drawio.pdf)
+
+---
+
+# Roles / Usuarios
+
+## Acción principal
+Recuperación de filtros de usuarios y gestión de roles.
+
+Referencia: [1](https://interbankingsa-my.sharepoint.com/personal/mcastano_interbanking_com_ar/Documents/Archivos%20de%20Microsoft%C2%A0Copilot%20Chat/Latam%20%283%29.drawio.pdf)
+
+---
+
+# Cuentas
+
+## Swagger
+https://accounts-back-qaaccounts-back.apps.rosa.v0z1n1h4r8q3k9r.pufv.p3.openshiftapps.com/swagger/
+
+## Endpoints
+
+| Método | Endpoint | Acción |
+|----------|----------|----------|
+| GET | `/v1/accounts` | Trae todas las cuentas |
+| GET | `/v1/accounts/filters` | Recupera filtros disponibles |
+| POST | `/v1/accounts` | Crea una cuenta |
+| PATCH | `/v1/accounts/{accountId}` | Modifica una cuenta |
+| DELETE | `/v1/accounts/{accountId}` | Elimina una cuenta |
+
+Referencia: [1](https://interbankingsa-my.sharepoint.com/personal/mcastano_interbanking_com_ar/Documents/Archivos%20de%20Microsoft%C2%A0Copilot%20Chat/Latam%20%283%29.drawio.pdf)
+
+---
+
+# Datos de la Empresa
+
+## Swagger
+https://companies-back-qacompanies-back.apps.rosa.v0z1n1h4r8q3k9r.pufv.p3.openshiftapps.com/swagger/
+
+## Endpoints
+
+| Método | Endpoint | Acción |
+|----------|----------|----------|
+| GET | `/v1/companies` | Recupera las empresas de la organización del usuario logueado |
+| GET | `/v1/companies/{companyId}` | Obtiene una empresa por ID |
+
+Referencia: [1](https://interbankingsa-my.sharepoint.com/personal/mcastano_interbanking_com_ar/Documents/Archivos%20de%20Microsoft%C2%A0Copilot%20Chat/Latam%20%283%29.drawio.pdf)
+
+---
+
+# Consolidado de Saldos
+
+## Swagger
+https://accountsummary-back-qaaccountsummary-back.apps.rosa.v0z1n1h4r8q3k9r.pufv.p3.openshiftapps.com/swagger/#/
+
+### Observaciones
+- `transaction_type = OPENING`
+
+## Endpoints
+
+| Método | Endpoint | Acción |
+|----------|----------|----------|
+| GET | `/v1/accountsummary/consolidated` | Recupera saldos consolidados detallados por país, bancos y cuentas |
+| GET | `/v1/accountsummary/consolidated/filters` | Recupera opciones de filtro (países, bancos y monedas) |
+
+Referencia: [1](https://interbankingsa-my.sharepoint.com/personal/mcastano_interbanking_com_ar/Documents/Archivos%20de%20Microsoft%C2%A0Copilot%20Chat/Latam%20%283%29.drawio.pdf)
+
+---
+
+# Resumen de Saldos Bancarios
+
+### Observaciones
+- `transaction_type = CLOSING`
+
+## Endpoint
+
+| Método | Endpoint | Acción |
+|----------|----------|----------|
+| GET | `/v1/accountsummary/summary` | Recupera un resumen de saldos por país agrupados por moneda |
+
+Referencia: [1](https://interbankingsa-my.sharepoint.com
