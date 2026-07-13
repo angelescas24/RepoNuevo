@@ -1,0 +1,67 @@
+Esquema de Firmas (EDF)
+
+1. ¿Qué es un esquema de firmas?
+El esquema de firmas refleja a los colaboradores que pueden autorizar las transferencias respetando la combinación de colaboradores, cuentas, montos y límites que tienen en el banco. Un esquema está compuesto por:
+Un grupo de firmantes (hasta 3 firmas).
+Una o más cuentas asociadas.
+El esquema en sí requiere la autorización de los operadores del cliente. Sin embargo, cada cuenta (o tope por cuenta) debe ser aprobada, rechazada, inhabilitada o puesta en trámite por el banco.
+ 
+2. ¿Cuándo se usa?
+Se utiliza al autorizar las transferencias, en el 2do paso del flujo: 1° Confección → 2° Autorización → 3° Envío.
+ 
+3. Arquitectura técnica
+Nota : La existencia de tener el back y el dom-back es porque inicialmente el dom-back debería conectarse a una base de datos en MongoDB, pero aún no tiene la capacidad y lógica. Usa el back para traer data de la base de datos relacional (SIB). Funcionará así hasta que se haga el desacople.
+ 
+Recursos técnicos
+Figma
+https://www.figma.com/design/usdXmtB9r5EEukgBbXAOR4/Esquema-de-firmas---ready-for-dev?node-id=5535-29309&p=f&t=Tg7ncmxFqmHrJ9AW-0Conecta tu cuenta de 
+Swagger BACK →           EDF BACK
+Swagger DOM BACK → EDF DOM BACK
+Swagger BFF →              BFF EDF
+ 
+Reglas de Negocio
+https://interbankingsa.sharepoint.com/sites/Filesys/Documentos/Digital%20Office/Material%20de%20consulta%20(actualizado)/Post%20venta%20A%20-%20Esquemas%20de%20firmas/Flujos%20funcionales/Esquema%20de%20firmas%20-%20Reglas%20de%20negocio.docConecta?xsdata=MDV8MDJ8fDJlY2FkMTI3YTg0MzQ1MWU5ZjZiMDhkZWJjZWVhNmVlfDQ4NTE3NjVhZWYwNDRlZWFhNzU4YjVhMWUxM2Q3NWM2fDB8MHw2MzkxNTU5MzAzMjIwODM2OTF8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T2pFelpEVTFPRFUzTFRNMk9UQXROREptWmkxaE1qVTFMV0ZqT1RSbE16WmhOVFJsTjE4eE5HRXlPR1EyTlMxak16STRMVFExWmpFdFlqVTNaaTB4WWpFNU1qQXpORGxqWlRGQWRXNXhMbWRpYkM1emNHRmpaWE12YldWemMyRm5aWE12TVRjM09UazVOakl6TURjME1RPT18MzY5YWQ5Y2MzYmYxNDE5NmRmMzYwOGRlYmNlZWE2ZWR8ZDE5NDViNWMyZjRhNGFkMmE1MWRhMTk2ZDA3OTFmNDk%3D&sdata=VS91Sm41Yk43N1pqSkNTTE9KSmFBM3BWM2hMckh5Mk44VUpUOCs0aFlQND0%3D&ovuser=4851765a-ef04-4eea-a758-b5a1e13d75c6%2Cmcastano%40interbanking.com.ar tu cuenta de 
+ 
+Mural EDF →  https://app.mural.co/t/pva7697/m/pva7697/1738070400060/60f3548a68963948a16e08f00a3c0c5849c0a749
+ 
+FILTROS JIRA:
+TEST AUTOMATIZADOS - [Test Case Esquema de Firmas - Regresión] Navegador de incidencias - INTERbanking
+TEST NO AUTOMATIZADOS - [Test Case Esquema de Firmas - Regresión] Navegador de incidencias - INTERbanking
+TEST NO AUTOMATIZABLES - [Test Case Esquema de Firmas - Regresión No Automatizable] Navegador de incidencias - INTERbanking
+TODOS LOS TEST EDF- [Test Case Esquema de Firmas - TOTAL] Navegador de incidencias - INTERbanking
+ 
+ 
+4. Funcionalidades por plataforma
+
+Nueva Plataforma (habilitadas)
+Crear esquemas ilimitados (sin tope) o con tope por esquema diario, con tope por transferencia y por cuenta.
+Consultar los esquemas ya creados.
+Autorización/revocación para administración conjunta (2do colaborador autoriza o revoca).
+Eliminar esquemas ya creados.
+Modificar EDF (agregar o eliminar topes del esquema, firmantes y cuentas).
+ 
+Plataforma anterior (SIB) 
+Crear esquemas ilimitados (sin tope) o con tope por esquema diario, con tope por transferencia y por cuenta.
+Consultar los esquemas ya creados.
+Autorización/revocación para administración conjunta (2do colaborador autoriza o revoca).
+Eliminar esquemas ya creados.
+Modificar EDF (agregar o eliminar topes del esquema, firmantes y cuentas).
+Consideraciones: Existen topes por tipo de cuenta fuera del EDF y restricciones por tipo TEF. Tener en cuenta otros clientes que usan EDF como Eslettemen, comunidades, recaudadoras.
+ 
+5. Permisos requeridos
+El operador debe contar con los siguientes permisos habilitados:
+ 
+EsquemasFirmas	Si	Si
+Mantenimiento	Si	Si
+Alta	Si	Si
+Modificacion	Si	Si
+Autorizacion	Si	Si
+Baja	 	 
+ 
+ 
+Administracion.EsquemasFirmas
+Administracion.EsquemasFirmas.Mantenimiento
+Administracion.EsquemasFirmas.Mantenimiento.Alta
+Administracion.EsquemasFirmas.Mantenimiento.Modificacion
+Administracion.EsquemasFirmas.Mantenimiento.Autorizacion
+Administracion.EsquemasFirmas.Mantenimiento.Baja
